@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import Socials from './HeaderComponents/Socials';
+import Navigation from './HeaderComponents/Navigation';
+import HeaderNotifications from './HeaderComponents/HeaderNotifications';
 
 const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <>
+      <Socials />
+      <Navigation />
+      <HeaderNotifications />
+    </>
+  );
+};
 
-export default Header
+export default Header;
