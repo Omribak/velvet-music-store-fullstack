@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import CategoriesList from './CategoriesList';
 
 const ProductsCategoriesContainer = styled.div`
   padding: 3rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const IntroductionText = styled.p`
@@ -14,7 +16,7 @@ const IntroductionText = styled.p`
   text-align: center;
 `;
 
-const TitleWrapper = styled.div`
+export const TitleWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,17 +24,17 @@ const TitleWrapper = styled.div`
   padding: 2rem;
 `;
 
-const Line = styled.div`
+export const Line = styled.div`
   border: 1px solid red;
-  background-color: rgb(255, 0, 0);
-  opacity: 50%;
+  background-color: rgb(190, 0, 0);
+  opacity: 30%;
   height: 0.02rem;
   width: 20rem;
 `;
 
-const TitleText = styled.h1`
+export const TitleText = styled.h1`
   margin: 0;
-  color: red;
+  color: rgb(190, 0, 0);
 `;
 const ProductsCategories = () => {
   return (
@@ -47,6 +49,7 @@ const ProductsCategories = () => {
         <TitleText>Velvet Rosa Products</TitleText>
         <Line />
       </TitleWrapper>
+      <CategoriesList />
     </ProductsCategoriesContainer>
   );
 };
