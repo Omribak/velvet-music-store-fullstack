@@ -86,6 +86,7 @@ const InputContainer = styled.div`
 `;
 
 const Navigation = () => {
+  
   return (
     <NavigationContainer>
       <LeftNav>

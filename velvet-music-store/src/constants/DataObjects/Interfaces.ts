@@ -1,5 +1,4 @@
-import React from 'react';
-import { IconBaseProps, IconType } from 'react-icons';
+import { IconBaseProps } from 'react-icons';
 
 export interface HomePageCategory {
   name: string;

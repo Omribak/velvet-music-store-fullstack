@@ -15,7 +15,6 @@ const SocialsContainer = styled.div`
 
 const SocialsIcons = styled.div`
   display: flex;
-  gap: 0.6rem;
   align-items: center;
 `;
 
@@ -28,13 +27,9 @@ const ContactText = styled.p`
 const Socials = () => {
   return (
     <SocialsContainer>
-      <SocialsIcons>
         <FaFacebookF color="white" size={18} />
         <FaInstagram color="white" size={21} />
-      </SocialsIcons>
-      <ContactNumber>
         <ContactText>{ContactTextSocials}</ContactText>
-      </ContactNumber>
     </SocialsContainer>
   );
 };

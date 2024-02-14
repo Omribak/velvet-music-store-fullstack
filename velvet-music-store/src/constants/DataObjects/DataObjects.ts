@@ -1,13 +1,12 @@
 import { FooterNavigation, HomePageCategory, WhyUsOption } from './Interfaces';
-import { FaShippingFast, FaPhone, FaCreditCard } from 'react-icons/fa';
 import { LiaShippingFastSolid } from 'react-icons/lia';
 import { CiCreditCard1 } from 'react-icons/ci';
 import { FiPhoneCall } from 'react-icons/fi';
-
+const ParentDirectorySocial = 'carousel-images/';
 export const CarouselImagesUrls = [
-  'carousel-img-1.jpg',
-  'carousel-img-2.jpg',
-  'carousel-img-3.jpg'
+  ParentDirectorySocial + 'carousel-img-1.jpg',
+  ParentDirectorySocial + 'carousel-img-2.jpg',
+  ParentDirectorySocial + 'carousel-img-3.jpg'
 ];
 
 export const CategoriesListHome: HomePageCategory[] = [
