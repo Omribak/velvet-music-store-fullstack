@@ -48,7 +48,7 @@ const WhyUs = () => {
     <WhyUsContainer>
       <TitleWrapper>
         <Line />
-        <TitleText>Why Us ?</TitleText>
+        <TitleText>WHY US ?</TitleText>
         <Line />
       </TitleWrapper>
       <WhyUsOptionWrapper>

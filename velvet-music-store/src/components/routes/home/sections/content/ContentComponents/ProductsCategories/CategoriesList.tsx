@@ -17,6 +17,7 @@ const CategoriesList = () => {
         <CategoryCard
           categoryName={category.name}
           categoryImage={category.image}
+          categoryLink={category.link}
         />
       ))}
     </CategoriesListContainer>

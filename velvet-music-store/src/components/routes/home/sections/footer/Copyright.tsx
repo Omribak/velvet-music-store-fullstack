@@ -13,7 +13,7 @@ const Test = styled.p`
 const Copyright = () => {
   return (
     <CopyrightContainer>
-      <Test>COPYRIGHT</Test>
+      <Test>&copy; 2024 Omri Bakal & Ben Cohen</Test>
     </CopyrightContainer>
   );
 };

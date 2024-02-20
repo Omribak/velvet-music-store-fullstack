@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface CategoryCardProps {
   categoryName: string;
   categoryImage: string;
+  categoryLink: string;
 }
 
 const CategoryCardContainer = styled.div`
@@ -33,13 +35,25 @@ const CategoryTitleName = styled.a`
   text-decoration: none;
   width: 90%;
   text-align: center;
+  cursor: pointer;
 `;
 
-const CategoryCard = ({ categoryName, categoryImage }: CategoryCardProps) => {
+const CategoryCard = ({
+  categoryName,
+  categoryImage,
+  categoryLink
+}: CategoryCardProps) => {
+  const navigate = useNavigate();
+
+  const handleClickedLink = () => {
+    navigate(categoryLink);
+  };
   return (
     <CategoryCardContainer>
       <CategoryImage src={`homepage-categories/${categoryImage}`} />
-      <CategoryTitleName href="">{categoryName}</CategoryTitleName>
+      <CategoryTitleName onClick={handleClickedLink}>
+        {categoryName}
+      </CategoryTitleName>
     </CategoryCardContainer>
   );
 };

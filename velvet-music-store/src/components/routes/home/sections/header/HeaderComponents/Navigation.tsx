@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { LuChevronDown } from 'react-icons/lu';
 import { FaSearch } from 'react-icons/fa';
+import { NavCategoriesList } from '../../../../../../constants/DataObjects/DataObjects';
 
 const NavigationContainer = styled.div`
   display: flex;
@@ -9,6 +10,11 @@ const NavigationContainer = styled.div`
   gap: 3rem;
   align-items: center;
   padding: 0.3rem;
+`;
+
+const LogoLink = styled.a`
+  all: unset;
+  cursor: pointer;
 `;
 
 const Logo = styled.h1``;
@@ -49,8 +55,14 @@ const NavButtonDiv = styled.div`
   gap: 0.2rem;
   padding: 0.4rem;
   border-top: 4px solid white;
+  position: relative;
 
   &:hover {
+    border-top: 2px solid rgb(190, 0, 0);
+    border-width: 0.3rem;
+  }
+
+  &.active {
     border-top: 2px solid rgb(190, 0, 0);
     border-width: 0.3rem;
   }
@@ -81,16 +93,82 @@ const LoginButton = styled.button`
   font-weight: bold;
 `;
 
+const CartButton = styled.button`
+  border: transparent;
+  color: white;
+  background-color: rgb(190, 0, 0);
+  padding: 0.7rem;
+  cursor: pointer;
+  font-weight: bold;
+`;
+
 const InputContainer = styled.div`
   position: relative;
 `;
 
+const DisplayOptions = styled.div`
+  position: absolute;
+  background-color: white;
+  width: 30rem;
+  z-index: 2;
+  display: flex;
+  /* top: 120%;
+  left: -70%; */
+  padding: 2rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+`;
+
+const DisplayBrands = styled.div`
+  position: absolute;
+  background-color: white;
+  width: 30rem;
+  z-index: 2;
+  display: flex;
+  top: 12%;
+  padding: 2rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+`;
+
+const ButtonContainer = styled.div``;
+
+const NavCat = styled.div``;
+
+const NavcatTitle = styled.p`
+  font-weight: bold;
+  display: inline-block;
+  overflow-wrap: break-word;
+`;
+
 const Navigation = () => {
-  
+  const [displayCategories, setDisplayCategories] = useState(false);
+  const [displayBrands, setDisplayBrands] = useState(false);
+
+  const handleDisplayCategories = () => {
+    setDisplayCategories(!displayCategories);
+    if (displayBrands) {
+      setDisplayBrands(false);
+    }
+  };
+
+  const handleDisplayBrands = () => {
+    setDisplayBrands(!displayBrands);
+    if (displayCategories) {
+      setDisplayCategories(false);
+    }
+  };
+
   return (
     <NavigationContainer>
       <LeftNav>
-        <Logo>LOGO</Logo>
+        <LogoLink href="/">
+          <Logo>LOGO</Logo>
+        </LogoLink>
         <InputContainer>
           <SearchInput placeholder="Search..." />
           <SearchIcon>
@@ -99,21 +177,50 @@ const Navigation = () => {
         </InputContainer>
       </LeftNav>
       <NavigationButtons>
-        <CategoriesButton>
-          <NavButtonDiv>
-            Categories
-            <LuChevronDown />
-          </NavButtonDiv>
-        </CategoriesButton>
-        <BrandsButton>
-          <NavButtonDiv>
+        <ButtonContainer>
+          <CategoriesButton onClick={handleDisplayCategories}>
+            <NavButtonDiv className={displayCategories ? 'active' : ''}>
+              Categories
+              <LuChevronDown />
+            </NavButtonDiv>
+          </CategoriesButton>
+          {displayCategories ? (
+            <DisplayOptions>
+              {NavCategoriesList.map((navcateg) => (
+                <NavCat key={navcateg.title}>
+                  <NavcatTitle>{navcateg.title}</NavcatTitle>
+                  {navcateg.categories.map((category) => (
+                    <p key={category}>{category}</p>
+                  ))}
+                </NavCat>
+              ))}
+            </DisplayOptions>
+          ) : null}
+        </ButtonContainer>
+        <BrandsButton onClick={handleDisplayBrands}>
+          <NavButtonDiv className={displayBrands ? 'active' : ''}>
             Brands
             <LuChevronDown />
           </NavButtonDiv>
         </BrandsButton>
+        {displayBrands ? (
+          <DisplayBrands>
+            {NavCategoriesList.map((navcateg) => (
+              <NavCat key={navcateg.title}>
+                <NavcatTitle>{navcateg.title}</NavcatTitle>
+                {navcateg.categories.map((category) => (
+                  <p key={category}>{category}</p>
+                ))}
+              </NavCat>
+            ))}
+          </DisplayBrands>
+        ) : null}
       </NavigationButtons>
       <div>
         <LoginButton>LOGIN</LoginButton>
+      </div>
+      <div>
+        <CartButton>CART</CartButton>
       </div>
     </NavigationContainer>
   );

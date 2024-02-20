@@ -3,6 +3,7 @@ import { IconBaseProps } from 'react-icons';
 export interface HomePageCategory {
   name: string;
   image: string;
+  link: string;
 }
 
 export interface WhyUsOption {
@@ -31,4 +32,9 @@ export interface FooterContactInfo {
   title: string;
   address: string;
   phone: string;
+}
+
+export interface NavCategoriesOptions {
+  title: string;
+  categories: string[];
 }
