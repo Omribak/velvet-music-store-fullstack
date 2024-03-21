@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CopyrightContainer = styled.div`
-  background-color: rgb(190, 0, 0);
+  background-color: rgb(163, 33, 33, 0.9);
   color: white;
 `;
 
@@ -13,7 +13,7 @@ const Test = styled.p`
 const Copyright = () => {
   return (
     <CopyrightContainer>
-      <Test>&copy; 2024 Omri Bakal & Ben Cohen</Test>
+      <Test>&copy; 2024 Omri Bakal</Test>
     </CopyrightContainer>
   );
 };

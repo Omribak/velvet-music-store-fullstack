@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import { PiArrowCircleRightLight } from 'react-icons/pi';
 import { PiArrowCircleLeftLight } from 'react-icons/pi';
@@ -58,6 +58,12 @@ const CarouselTools = () => {
     });
   };
 
+  useEffect(() => {
+    const intervalId = setInterval(MoveNextImage, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   const MoveNextImage = () => {
     setImagesIndex((index: number) => {
       if (index === CarouselImagesUrls.length - 1) return 0;
@@ -66,8 +72,8 @@ const CarouselTools = () => {
   };
   return (
     <SliderContainer>
-      <Slider imgUrl={CarouselImagesUrls[imageIndex]}/>
-    <LeftArrowButton>
+      <Slider imgUrl={CarouselImagesUrls[imageIndex]} />
+      <LeftArrowButton>
         <PiArrowCircleLeftLight size={50} onClick={MovePrevImage} />
       </LeftArrowButton>
       <RightArrowButton onClick={MoveNextImage}>
@@ -75,7 +81,7 @@ const CarouselTools = () => {
       </RightArrowButton>
       <RadioButtons>
         {CarouselImagesUrls.map((_, index) => (
-          <RadioBtn onClick={() => setImagesIndex(index)}>
+          <RadioBtn key={index} onClick={() => setImagesIndex(index)}>
             {index === imageIndex ? (
               <IoRadioButtonOn size={25} />
             ) : (
@@ -83,9 +89,9 @@ const CarouselTools = () => {
             )}
           </RadioBtn>
         ))}
-      </RadioButtons> 
-      </SliderContainer>
-  )
-}
+      </RadioButtons>
+    </SliderContainer>
+  );
+};
 
-export default CarouselTools
+export default CarouselTools;

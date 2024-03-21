@@ -16,6 +16,19 @@ const WhyUsOptionWrapper = styled.div`
   gap: 4rem;
   margin-left: 8rem;
   padding: 2rem;
+
+  @media only screen and (max-width: 1300px) {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 3rem;
+    gap: 0rem;
+  }
+
+  @media only screen and (max-width: 420px) {
+    align-items: start;
+
+    margin-left: 4rem;
+  }
 `;
 
 const WhyUsOptionCard = styled.div`
@@ -27,11 +40,26 @@ const OptionTitle = styled.h1`
   overflow-wrap: break-word;
   width: 20rem;
   color: #be0000;
+
+  @media only screen and (max-width: 1300px) {
+    width: 18rem;
+  }
+
+  @media only screen and (max-width: 420px) {
+    font-size: 1.2rem;
+    width: 12rem;
+    text-align: center;
+  }
 `;
 
 const OptionDescription = styled.p`
   overflow-wrap: break-word;
   width: 15rem;
+
+  @media only screen and (max-width: 420px) {
+    width: 10rem;
+    text-align: center;
+  }
 `;
 
 const OptionIcon = styled.div`
@@ -39,8 +67,16 @@ const OptionIcon = styled.div`
   border: 1px solid #be0000;
   display: inline-block;
   border-radius: 0.3rem;
-  padding: 1.3rem;
+  padding: 0.7rem;
   margin-left: 4rem;
+`;
+
+const Title = styled.h1`
+  color: rgb(190, 0, 0);
+  margin: 0;
+  @media only screen and (max-width: 1300px) {
+    flex-direction: column;
+  }
 `;
 
 const WhyUs = () => {
@@ -48,12 +84,12 @@ const WhyUs = () => {
     <WhyUsContainer>
       <TitleWrapper>
         <Line />
-        <TitleText>WHY US ?</TitleText>
+        <Title>WHY US ?</Title>
         <Line />
       </TitleWrapper>
       <WhyUsOptionWrapper>
-        {WhyUsOptions.map((option) => (
-          <WhyUsOptionCard>
+        {WhyUsOptions.map((option, index) => (
+          <WhyUsOptionCard key={index}>
             <OptionIcon>{option.icon({ color: '#be0000' })}</OptionIcon>
             <OptionTitle>{option.title}</OptionTitle>
             <OptionDescription>{option.description}</OptionDescription>

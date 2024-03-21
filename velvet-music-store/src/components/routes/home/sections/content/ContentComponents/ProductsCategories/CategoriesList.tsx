@@ -13,11 +13,13 @@ const CategoriesListContainer = styled.div`
 const CategoriesList = () => {
   return (
     <CategoriesListContainer>
-      {CategoriesListHome.map((category) => (
+      {CategoriesListHome.map((category, index) => (
         <CategoryCard
+          key={index}
           categoryName={category.name}
           categoryImage={category.image}
           categoryLink={category.link}
+          categoryProp={category.category_prop}
         />
       ))}
     </CategoriesListContainer>

@@ -4,6 +4,7 @@ export interface HomePageCategory {
   name: string;
   image: string;
   link: string;
+  category_prop: string;
 }
 
 export interface WhyUsOption {
@@ -36,5 +37,16 @@ export interface FooterContactInfo {
 
 export interface NavCategoriesOptions {
   title: string;
+  categories: { label: string; link?: string; location_prop?: string }[];
+}
+
+export interface NavBrandsOptions {
+  title: string;
   categories: string[];
+}
+
+export interface BrandsContentInterace {
+  title: string;
+  image: string;
+  content: string;
 }

@@ -14,6 +14,14 @@ const IntroductionText = styled.p`
   overflow-wrap: break-word;
   width: 30rem;
   text-align: center;
+
+  @media only screen and (max-width: 540px) {
+    width: 20rem;
+  }
+
+  @media only screen and (max-width: 420px) {
+    width: 15rem;
+  }
 `;
 
 export const TitleWrapper = styled.div`
@@ -30,11 +38,23 @@ export const Line = styled.div`
   opacity: 30%;
   height: 0.02rem;
   width: 20rem;
+
+  @media only screen and (max-width: 1300px) {
+    width: 10rem;
+  }
+
+  @media only screen and (max-width: 800px) {
+    display: none;
+  }
 `;
 
 export const TitleText = styled.h1`
   margin: 0;
   color: rgb(190, 0, 0);
+
+  @media only screen and (max-width: 1300px) {
+    width: 20rem;
+  }
 `;
 const ProductsCategories = () => {
   return (

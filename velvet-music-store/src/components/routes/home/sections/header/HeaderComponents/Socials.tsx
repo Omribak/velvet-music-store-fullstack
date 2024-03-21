@@ -22,14 +22,18 @@ const ContactNumber = styled.div``;
 
 const ContactText = styled.p`
   color: white;
+
+  @media only screen and (max-width: 550px) {
+    display: none;
+  }
 `;
 
 const Socials = () => {
   return (
     <SocialsContainer>
-        <FaFacebookF color="white" size={18} />
-        <FaInstagram color="white" size={21} />
-        <ContactText>{ContactTextSocials}</ContactText>
+      <FaFacebookF color="white" size={18} />
+      <FaInstagram color="white" size={21} />
+      <ContactText>{ContactTextSocials}</ContactText>
     </SocialsContainer>
   );
 };

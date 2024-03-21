@@ -5,7 +5,8 @@ import { Line } from '../content/ContentComponents/ProductsCategories/ProductsCa
 import Copyright from './Copyright';
 
 const FooterContainer = styled.div`
-  background-color: rgb(190, 0, 0, 0.8);
+  /* background-color: rgb(190, 0, 0, 0.8); */
+  background-color: rgb(163, 33, 33);
   color: white;
   padding: 2rem;
 `;
@@ -14,6 +15,11 @@ const FooterNavColumns = styled.div`
   display: flex;
   justify-content: center;
   gap: 4rem;
+
+  @media only screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const FooterNavLinks = styled.div``;
@@ -48,12 +54,12 @@ const Footer = () => {
           <FooterNavLinks>
             <ColumnTitle>{FooterColumns.navlinks.title}</ColumnTitle>
             {FooterColumns.navlinks.links.map((link, index) => (
-              <>
+              <div key={index}>
                 <NavLink href="">{link}</NavLink>
                 {index === FooterColumns.navlinks.links.length - 1 ? null : (
                   <FooterLine />
                 )}
-              </>
+              </div>
             ))}
           </FooterNavLinks>
           <WhoAreWeColumn>
