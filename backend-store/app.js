@@ -40,6 +40,10 @@ app.use(bodyParser.json());
 
 app.use(logRequestBody);
 
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to the Velvet Rosa API' });
+});
+
 app.use('/api/v1/products', productsRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/cart', cartRoutes);
