@@ -9,4 +9,4 @@ export const users_url =
 export const cart_url = 'https://velvet-rosa-backend.onrender.com/api/v1/cart';
 
 export const checkout_url =
-  'https://velvet-rosa-backend.onrender.com/stripe-checkout';
+  'https://velvet-rosa-backend.onrender.com/api/v1/stripe-checkout';
