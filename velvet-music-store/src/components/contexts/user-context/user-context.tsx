@@ -76,7 +76,6 @@ export const UserProvider = ({ children }: UserContextProviderProps) => {
         },
         { withCredentials: true }
       );
-      console.log(response);
       checkLoginOnStartApp();
       return true;
     } catch (error: any) {
@@ -103,7 +102,6 @@ export const UserProvider = ({ children }: UserContextProviderProps) => {
           withCredentials: true
         }
       );
-      console.log(response);
       return true;
     } catch (error: any) {
       toast.error(error.response.data.message);
@@ -132,7 +130,6 @@ export const UserProvider = ({ children }: UserContextProviderProps) => {
           id: response.data.user_data.userId,
           fullname: response.data.user_data.fullname
         };
-        console.log(userData);
         dispatch({ type: CHECK_LOGIN_USER_SUCCESS, payload: { userData } });
       } else {
         dispatch({ type: CHECK_LOGIN_USER_ERROR });

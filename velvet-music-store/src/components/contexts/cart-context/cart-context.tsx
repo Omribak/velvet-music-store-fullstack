@@ -107,7 +107,6 @@ export const CartProvider = ({ children }: CartContextProviderProps) => {
   const UpdateCart = async (userId: string) => {
     try {
       const response = await axios.get(`${cart_url}/get-cart/${userId}`);
-      console.log(response.data.UserCart);
       dispatch({
         type: UPDATE_USER_CART,
         payload: {
@@ -180,12 +179,10 @@ export const CartProvider = ({ children }: CartContextProviderProps) => {
   };
 
   const ResetCart = () => {
-    console.log('RESET CART');
     dispatch({ type: RESET_CART_SUCCESS });
   };
 
   useEffect(() => {
-    console.log(UserCtx?.is_logged_in);
     if (UserCtx?.is_logged_in) {
       if (UserCtx.user?.id) {
         UpdateCart(UserCtx.user?.id);

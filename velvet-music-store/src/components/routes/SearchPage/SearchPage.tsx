@@ -29,8 +29,6 @@ const SearchPage = () => {
   const [loading, setLoading] = useState(false);
   const [searchProducts, setSearchProducts] = useState<Product[] | undefined>();
 
-  console.log(searchInput);
-
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -38,8 +36,6 @@ const SearchPage = () => {
         if (searchInput) {
           const response = await ProductsCtx?.SearchProducts(searchInput);
           setSearchProducts(response?.products);
-
-          console.log(response?.results);
         }
       } catch (error) {
         console.error('Error fetching search products:', error);

@@ -172,8 +172,6 @@ export const ProductsProvider = ({
         type: GET_FILTERED_PRODUCTS_SUCCESS,
         payload: { filter_products, filters_state: filters, sort_state: sort }
       });
-
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
