@@ -9,10 +9,11 @@ const StripeRoutes = require('./routes/stripeRoutes');
 const ErrorController = require('./controllers/ErrorController');
 const morgan = require('morgan');
 const AppError = require('./utils/AppError');
+const front_prod_url = require('./utils/prod-url');
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = [front_prod_url];
 
 const logRequestBody = (req, res, next) => {
   console.log('Request Body:', req.body);
