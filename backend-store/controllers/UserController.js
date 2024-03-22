@@ -103,7 +103,7 @@ exports.Login = async (req, res, next) => {
         const cookieOptions = {
           expires: new Date(Date.now() + 60 * 60 * 1000),
           httpOnly: true,
-          secure: false
+          sameSite: 'None'
         };
         res.cookie('jwt', token, cookieOptions);
         return res.status(200).json({
@@ -152,7 +152,7 @@ exports.Logout = (req, res, next) => {
       message: 'You are not logged in.'
     });
   }
-  res.clearCookie('jwt', { httpOnly: true });
+  res.clearCookie('jwt', { httpOnly: true, sameSite: 'None' });
   res.status(200).json({
     message: 'Logged out successfully'
   });
