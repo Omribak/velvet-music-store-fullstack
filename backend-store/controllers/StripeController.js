@@ -2,7 +2,6 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const User = require('../models/UserModel');
-const front_prod_url = require('../utils/prod-url');
 
 exports.createCheckoutSession = async (req, res, next) => {
   const { userId } = req.body;
@@ -23,8 +22,8 @@ exports.createCheckoutSession = async (req, res, next) => {
       payment_method_types: ['card'],
       mode: 'payment',
       line_items: lineItems,
-      success_url: `${front_prod_url}/checkout-success`,
-      cancel_url: front_prod_url
+      success_url: 'https://velvet-rosa.onrender.com/checkout-success',
+      cancel_url: 'https://velvet-rosa.onrender.com/'
     });
     res.status(200).json({
       message: 'success',
