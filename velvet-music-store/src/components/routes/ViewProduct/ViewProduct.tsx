@@ -131,9 +131,16 @@ const ViewProduct = () => {
     }
   };
 
+  if (ProductsCtx?.single_product_loading) {
+    return (
+      <ViewProductContainer>
+        <Loader />
+      </ViewProductContainer>
+    );
+  }
+
   return (
     <ViewProductContainer>
-      {ProductsCtx?.single_product_loading && <Loader />}
       <ProductDetailsWrapper>
         <ProductImage src={`/products-images/${product?.image}`} />
         <ProductDetails>
