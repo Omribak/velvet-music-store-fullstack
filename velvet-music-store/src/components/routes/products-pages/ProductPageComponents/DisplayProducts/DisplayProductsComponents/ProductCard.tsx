@@ -27,7 +27,7 @@ const ProductCardContainer = styled.div`
   }
 
   @media only screen and (max-width: 450px) {
-    width: 8rem;
+    width: 15rem;
   }
 `;
 
