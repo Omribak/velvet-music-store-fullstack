@@ -4,6 +4,7 @@ import FilterSection from './ProductPageComponents/FilterSection';
 import DisplayProducts from './ProductPageComponents/DisplayProducts/DisplayProducts';
 import { useParams } from 'react-router-dom';
 import { useProductsContext } from '../../contexts/products-context/products-context';
+import Loader from '../../utils-components/Loader';
 
 const ProductPageContainer = styled.div`
   display: flex;
@@ -44,6 +45,10 @@ const ProductPage = () => {
 
     setProductsMaxPrice(maxPrice);
   }, [products, ProductsCtx?.original_products, category]);
+
+  if (ProductsCtx?.products_loading) {
+    return <Loader />;
+  }
 
   return (
     <ProductPageContainer>
