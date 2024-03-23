@@ -4,6 +4,7 @@ import {
   GET_FILTERED_PRODUCTS_SUCCESS,
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_ERROR,
+  GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_SUCCESS,
   RESET_FILTERS,
   TOGGLE_SIDENAV
@@ -28,6 +29,10 @@ type ProductsSuccessAction = {
 
 type GetProductsErrorAction = {
   type: 'GET_PRODUCTS_ERROR';
+};
+
+type GetSingleProductBegin = {
+  type: 'GET_SINGLE_PRODUCT_BEGIN';
 };
 
 type GetFilteredProductsSuccessAction = {
@@ -69,7 +74,8 @@ type Action =
   | GetSingleProductSuccessAction
   | ResetFiltersAction
   | ChangeCategoryAction
-  | ToggleSidenav;
+  | ToggleSidenav
+  | GetSingleProductBegin;
 
 export default function ProductsReducer(
   state: ProductsState,
@@ -100,9 +106,17 @@ export default function ProductsReducer(
     };
   }
 
+  if (action.type === GET_SINGLE_PRODUCT_BEGIN) {
+    return {
+      ...state,
+      single_product_loading: true
+    };
+  }
+
   if (action.type === GET_SINGLE_PRODUCT_SUCCESS) {
     return {
       ...state,
+      single_product_loading: false,
       single_product: action.payload.product
     };
   }

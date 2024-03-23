@@ -8,6 +8,7 @@ import {
   GET_FILTERED_PRODUCTS_SUCCESS,
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_ERROR,
+  GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_SUCCESS,
   RESET_FILTERS,
   TOGGLE_SIDENAV
@@ -70,6 +71,7 @@ export type ProductsState = {
   filters_state: Filters;
   sort_state: string;
   single_product: Product | null;
+  single_product_loading: boolean;
   sidenav_toggle: boolean;
   fetchCategoryProducts: FetchCategoryProducts;
   ApplyFiltersAndSort: ApplyFiltersAndSortType;
@@ -93,6 +95,7 @@ const initialState: ProductsState = {
   },
   sidenav_toggle: false,
   sort_state: '',
+  single_product_loading: false,
   single_product: null,
   fetchCategoryProducts: () => {},
   ApplyFiltersAndSort: () => {},
@@ -178,6 +181,7 @@ export const ProductsProvider = ({
   };
 
   const GetSingleProduct = async (product_id: string) => {
+    dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
     try {
       const response = await axios.get(`${products_url}/${product_id}`);
       const product = response.data.product;

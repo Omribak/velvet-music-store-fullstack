@@ -7,6 +7,7 @@ import { FiMinus } from 'react-icons/fi';
 import { useCartContext } from '../../contexts/cart-context/cart-context';
 import { useUserContext } from '../../contexts/user-context/user-context';
 import toast from 'react-hot-toast';
+import Loader from '../../utils-components/Loader';
 
 const ViewProductContainer = styled.div`
   padding: 8rem;
@@ -132,6 +133,7 @@ const ViewProduct = () => {
 
   return (
     <ViewProductContainer>
+      {ProductsCtx?.single_product_loading && <Loader />}
       <ProductDetailsWrapper>
         <ProductImage src={`/products-images/${product?.image}`} />
         <ProductDetails>
