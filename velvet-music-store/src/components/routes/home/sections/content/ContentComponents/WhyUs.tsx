@@ -20,19 +20,21 @@ const WhyUsOptionWrapper = styled.div`
   @media only screen and (max-width: 1300px) {
     flex-direction: column;
     align-items: center;
-    margin-left: 3rem;
+    margin-left: 0;
     gap: 0rem;
   }
 
   @media only screen and (max-width: 420px) {
-    align-items: start;
-
-    margin-left: 4rem;
+    gap: 1rem;
   }
 `;
 
 const WhyUsOptionCard = styled.div`
   height: 20rem;
+
+  @media only screen and (max-width: 420px) {
+    text-align: center;
+  }
 `;
 
 const OptionTitle = styled.h1`
@@ -42,7 +44,8 @@ const OptionTitle = styled.h1`
   color: #be0000;
 
   @media only screen and (max-width: 1300px) {
-    width: 18rem;
+    width: 15rem;
+    text-align: center;
   }
 
   @media only screen and (max-width: 420px) {
@@ -56,8 +59,12 @@ const OptionDescription = styled.p`
   overflow-wrap: break-word;
   width: 15rem;
 
+  @media only screen and (max-width: 1300px) {
+    text-align: center;
+  }
+
   @media only screen and (max-width: 420px) {
-    width: 10rem;
+    width: 12rem;
     text-align: center;
   }
 `;
@@ -69,6 +76,16 @@ const OptionIcon = styled.div`
   border-radius: 0.3rem;
   padding: 0.7rem;
   margin-left: 4rem;
+
+  @media only screen and (max-width: 1300px) {
+    padding: 1.5rem;
+    margin-left: 5rem;
+  }
+
+  @media only screen and (max-width: 420px) {
+    margin: 0;
+    padding: 1rem;
+  }
 `;
 
 const Title = styled.h1`
